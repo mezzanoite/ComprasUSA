@@ -50,7 +50,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="b0o-KM-nsv">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="wGB-Qf-IG7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wGB-Qf-IG7">
                             <connections>
                                 <segue destination="XKG-k5-YGD" kind="show" id="UvD-A8-Q8m"/>
                             </connections>

@@ -12,9 +12,9 @@
 		8493D504208674D300E07080 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8493D502208674D300E07080 /* Main.storyboard */; };
 		8493D506208674D500E07080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8493D505208674D500E07080 /* Assets.xcassets */; };
 		8493D509208674D500E07080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8493D507208674D500E07080 /* LaunchScreen.storyboard */; };
-		8493D5152086839100E07080 /* settings-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D5142086839100E07080 /* settings-2.png */; };
 		8493D517208685C400E07080 /* gear-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D516208685C400E07080 /* gear-7.png */; };
 		8493D51A208686B100E07080 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D519208686B100E07080 /* bag.png */; };
+		8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493D51B2086903100E07080 /* ProductsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +25,9 @@
 		8493D505208674D500E07080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8493D508208674D500E07080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8493D50A208674D500E07080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8493D5142086839100E07080 /* settings-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-2.png"; sourceTree = "<group>"; };
 		8493D516208685C400E07080 /* gear-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-7.png"; sourceTree = "<group>"; };
 		8493D519208686B100E07080 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
+		8493D51B2086903100E07080 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +44,7 @@
 		8493D4F2208674D300E07080 = {
 			isa = PBXGroup;
 			children = (
+				8493D51B2086903100E07080 /* ProductsTableViewController.swift */,
 				8493D4FD208674D300E07080 /* RafaelSoares */,
 				8493D4FC208674D300E07080 /* Products */,
 			);
@@ -63,7 +64,6 @@
 				8493D5182086864900E07080 /* Resources */,
 				8493D4FE208674D300E07080 /* AppDelegate.swift */,
 				8493D500208674D300E07080 /* ViewController.swift */,
-				8493D5142086839100E07080 /* settings-2.png */,
 				8493D502208674D300E07080 /* Main.storyboard */,
 				8493D505208674D500E07080 /* Assets.xcassets */,
 				8493D507208674D500E07080 /* LaunchScreen.storyboard */,
@@ -141,7 +141,6 @@
 			files = (
 				8493D51A208686B100E07080 /* bag.png in Resources */,
 				8493D509208674D500E07080 /* LaunchScreen.storyboard in Resources */,
-				8493D5152086839100E07080 /* settings-2.png in Resources */,
 				8493D506208674D500E07080 /* Assets.xcassets in Resources */,
 				8493D517208685C400E07080 /* gear-7.png in Resources */,
 				8493D504208674D300E07080 /* Main.storyboard in Resources */,
@@ -156,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8493D501208674D300E07080 /* ViewController.swift in Sources */,
+				8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */,
 				8493D4FF208674D300E07080 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
