@@ -26,16 +26,21 @@
             </objects>
             <point key="canvasLocation" x="-66" y="1008"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Products Table View Controller-->
         <scene sceneID="DwM-SS-qbO">
             <objects>
-                <tableViewController id="PLV-cN-Vk8" sceneMemberID="viewController">
+                <tableViewController id="PLV-cN-Vk8" customClass="ProductsTableViewController" customModule="RafaelSoares" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EYj-kK-Hsa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="gSr-UO-oS7">
+                            <rect key="frame" x="0.0" y="113" width="375" height="2"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="6Ot-F8-L0R">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="productCell" rowHeight="85" id="6Ot-F8-L0R">
                                 <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Ot-F8-L0R" id="Ken-wj-lnO">
@@ -59,38 +64,73 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTm-N0-OPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1725.5999999999999" y="-259.52023988005999"/>
+            <point key="canvasLocation" x="1870" y="-296"/>
         </scene>
-        <!--View Controller-->
+        <!--Ajustes-->
         <scene sceneID="5lk-66-vF8">
             <objects>
                 <viewController id="XKG-k5-YGD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bYA-bS-YI9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Estado da compra" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gyJ-Gs-l5R">
+                                <rect key="frame" x="22" y="334" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAj-Ht-Sa7">
+                                <rect key="frame" x="22" y="127" width="331" height="192"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AsY-PH-yHx">
+                                <rect key="frame" x="331" y="338" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Valor (U$)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LED-Mg-bJ6">
+                                <rect key="frame" x="22" y="379" width="153" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7lW-Te-V14">
+                                <rect key="frame" x="304" y="379" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome do produto" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G22-OZ-cGr">
+                                <rect key="frame" x="22" y="83" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tt2-0S-uzU">
+                                <rect key="frame" x="22" y="446" width="329" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29268292682926811" green="0.4530413618733351" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="CADASTRAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cartão?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqF-9Q-Xey">
+                                <rect key="frame" x="235" y="384" width="61" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bzH-4x-qOa"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="gear-7.png" selectedImage="gear-7.png" id="X9t-Kx-Vg0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1e-S6-XwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527" y="-260"/>
-        </scene>
-        <!--Ajustes-->
-        <scene sceneID="UFk-Gs-6LH">
-            <objects>
-                <viewController id="qUF-Op-ig0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AOK-gu-Ofo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="tJn-p9-enK"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Ajustes" image="gear-7.png" selectedImage="gear-7.png" id="m0h-9W-zMR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKx-iU-pBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="886" y="529"/>
+            <point key="canvasLocation" x="959" y="524"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JZy-P1-CXw">
@@ -103,7 +143,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="3eI-wh-dLU" kind="relationship" relationship="viewControllers" id="Odq-ra-aWZ"/>
-                        <segue destination="qUF-Op-ig0" kind="relationship" relationship="viewControllers" id="iMq-TI-TXz"/>
+                        <segue destination="XKG-k5-YGD" kind="relationship" relationship="viewControllers" id="zBN-N3-S4k"/>
                         <segue destination="IPX-V6-qfL" kind="relationship" relationship="viewControllers" id="jVu-ss-mdT"/>
                     </connections>
                 </tabBarController>
@@ -128,11 +168,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOV-nn-9df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="-258"/>
+            <point key="canvasLocation" x="898" y="-296"/>
         </scene>
     </scenes>
     <resources>
         <image name="bag.png" width="30" height="30"/>
         <image name="gear-7.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zBN-N3-S4k"/>
+    </inferredMetricsTieBreakers>
 </document>
