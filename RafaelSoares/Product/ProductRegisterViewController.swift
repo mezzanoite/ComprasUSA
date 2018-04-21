@@ -15,10 +15,25 @@ class ProductRegisterViewController: UIViewController {
     @IBOutlet weak var tfState: UITextField!
     @IBOutlet weak var tfValue: UITextField!
     
+    var product: Product!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
 
+    @IBAction func addUpdateProduct(_ sender: UIButton) {
+        if product == nil {
+            product = Product(context: context)
+        }
+        product.name = tfName.text!
+        product.value = Double(tfValue.text!)!
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
