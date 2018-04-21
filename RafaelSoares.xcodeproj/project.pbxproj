@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		846CACD32088B414006B4D10 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CACD22088B414006B4D10 /* ProductTableViewCell.swift */; };
 		846CACD62088C548006B4D10 /* ComprasUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846CACD42088C548006B4D10 /* ComprasUSA.xcdatamodeld */; };
+		8481410F208B8CB60053DE1B /* ProductRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481410E208B8CB60053DE1B /* ProductRegisterViewController.swift */; };
+		84814112208B8ECA0053DE1B /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84814111208B8ECA0053DE1B /* UIViewController+CoreData.swift */; };
 		8493D4FF208674D300E07080 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493D4FE208674D300E07080 /* AppDelegate.swift */; };
 		8493D501208674D300E07080 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493D500208674D300E07080 /* ViewController.swift */; };
 		8493D504208674D300E07080 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8493D502208674D300E07080 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		846CACD22088B414006B4D10 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		846CACD52088C548006B4D10 /* ComprasUSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComprasUSA.xcdatamodel; sourceTree = "<group>"; };
+		8481410E208B8CB60053DE1B /* ProductRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRegisterViewController.swift; sourceTree = "<group>"; };
+		84814111208B8ECA0053DE1B /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		8493D4FB208674D300E07080 /* RafaelSoares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RafaelSoares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8493D4FE208674D300E07080 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8493D500208674D300E07080 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,9 +53,18 @@
 			isa = PBXGroup;
 			children = (
 				8493D51B2086903100E07080 /* ProductsTableViewController.swift */,
+				8481410E208B8CB60053DE1B /* ProductRegisterViewController.swift */,
 				846CACD22088B414006B4D10 /* ProductTableViewCell.swift */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		84814110208B8E9F0053DE1B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84814111208B8ECA0053DE1B /* UIViewController+CoreData.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8493D4F2208674D300E07080 = {
@@ -73,6 +86,7 @@
 		8493D4FD208674D300E07080 /* RafaelSoares */ = {
 			isa = PBXGroup;
 			children = (
+				84814110208B8E9F0053DE1B /* Extensions */,
 				846CACD12088B3C6006B4D10 /* Product */,
 				8493D5182086864900E07080 /* Resources */,
 				8493D4FE208674D300E07080 /* AppDelegate.swift */,
@@ -172,7 +186,9 @@
 				846CACD32088B414006B4D10 /* ProductTableViewCell.swift in Sources */,
 				8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */,
 				8493D4FF208674D300E07080 /* AppDelegate.swift in Sources */,
+				84814112208B8ECA0053DE1B /* UIViewController+CoreData.swift in Sources */,
 				846CACD62088C548006B4D10 /* ComprasUSA.xcdatamodeld in Sources */,
+				8481410F208B8CB60053DE1B /* ProductRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

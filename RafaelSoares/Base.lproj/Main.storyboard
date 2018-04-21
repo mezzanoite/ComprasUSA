@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-66" y="1008"/>
         </scene>
-        <!--Products Table View Controller-->
+        <!--Lista de Compras-->
         <scene sceneID="DwM-SS-qbO">
             <objects>
                 <tableViewController id="PLV-cN-Vk8" customClass="ProductsTableViewController" customModule="RafaelSoares" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,7 +54,8 @@
                             <outlet property="delegate" destination="PLV-cN-Vk8" id="cu7-YH-eyI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="b0o-KM-nsv">
+                    <navigationItem key="navigationItem" title="Lista de Compras" id="b0o-KM-nsv">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Ly7-VF-sjQ"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wGB-Qf-IG7">
                             <connections>
                                 <segue destination="XKG-k5-YGD" kind="show" id="UvD-A8-Q8m"/>
@@ -66,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1870" y="-296"/>
         </scene>
-        <!--Ajustes-->
+        <!--Cadastrar Produto-->
         <scene sceneID="5lk-66-vF8">
             <objects>
-                <viewController id="XKG-k5-YGD" sceneMemberID="viewController">
+                <viewController title="Cadastrar Produto" id="XKG-k5-YGD" customClass="ProductRegisterViewController" customModule="RafaelSoares" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bYA-bS-YI9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,6 +128,12 @@
                         <viewLayoutGuide key="safeArea" id="bzH-4x-qOa"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ajustes" image="gear-7.png" selectedImage="gear-7.png" id="X9t-Kx-Vg0"/>
+                    <connections>
+                        <outlet property="ivPicture" destination="mAj-Ht-Sa7" id="swx-pb-Wua"/>
+                        <outlet property="tfName" destination="G22-OZ-cGr" id="I0j-Ka-3TI"/>
+                        <outlet property="tfState" destination="gyJ-Gs-l5R" id="qNN-r9-oFo"/>
+                        <outlet property="tfValue" destination="LED-Mg-bJ6" id="vg1-4U-eFH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1e-S6-XwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
