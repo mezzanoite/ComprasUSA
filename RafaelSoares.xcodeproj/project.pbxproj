@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		8493D517208685C400E07080 /* gear-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D516208685C400E07080 /* gear-7.png */; };
 		8493D51A208686B100E07080 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D519208686B100E07080 /* bag.png */; };
 		8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493D51B2086903100E07080 /* ProductsTableViewController.swift */; };
+		AC2A2C99208EA5AC00CC15DA /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A2C98208EA5AC00CC15DA /* StatesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8493D516208685C400E07080 /* gear-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-7.png"; sourceTree = "<group>"; };
 		8493D519208686B100E07080 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
 		8493D51B2086903100E07080 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
+		AC2A2C98208EA5AC00CC15DA /* StatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				84814110208B8E9F0053DE1B /* Extensions */,
 				846CACD12088B3C6006B4D10 /* Product */,
+				AC2A2C97208EA56F00CC15DA /* State */,
 				8493D5182086864900E07080 /* Resources */,
 				8493D4FE208674D300E07080 /* AppDelegate.swift */,
 				8493D500208674D300E07080 /* ViewController.swift */,
@@ -107,6 +110,14 @@
 				8493D516208685C400E07080 /* gear-7.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AC2A2C97208EA56F00CC15DA /* State */ = {
+			isa = PBXGroup;
+			children = (
+				AC2A2C98208EA5AC00CC15DA /* StatesViewController.swift */,
+			);
+			path = State;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,11 +152,12 @@
 				TargetAttributes = {
 					8493D4FA208674D300E07080 = {
 						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 8493D4F6208674D300E07080 /* Build configuration list for PBXProject "RafaelSoares" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -182,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2A2C99208EA5AC00CC15DA /* StatesViewController.swift in Sources */,
 				8493D501208674D300E07080 /* ViewController.swift in Sources */,
 				846CACD32088B414006B4D10 /* ProductTableViewCell.swift in Sources */,
 				8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */,
@@ -322,8 +335,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -334,10 +346,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RafaelSoares/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.fiap.RafaelSoares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -351,10 +361,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RafaelSoares/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.fiap.RafaelSoares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

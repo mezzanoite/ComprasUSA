@@ -62,6 +62,11 @@ class ProductsTableViewController: UITableViewController {
         let product = fetchedResultController.object(at: indexPath)
         cell.lbValue.text = "\(product.value)"
         cell.lbName.text = product.name
+        if let image = product.picture as? UIImage {
+            cell.ivPicture.image = image
+        } else {
+            cell.ivPicture.image = nil
+        }
         return cell
     }
     
