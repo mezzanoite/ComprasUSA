@@ -14,7 +14,6 @@ enum DialogType {
     case edit
 }
 
-
 class StatesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +25,7 @@ class StatesViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        loadStates()
     }
 
     // MARK: - Methods
@@ -50,9 +50,19 @@ class StatesViewController: UIViewController {
                 textField.text = name
             }
         }
+        alert.addTextField { (textField: UITextField) in
+            textField.placeholder = "Imposto"
+            if let stateTax = state?.stateTax {
+                textField.text = "\(stateTax)"
+            }
+        }
+        
         alert.addAction(UIAlertAction(title: title, style: .default, handler: { (action: UIAlertAction) in
-            let category = state ?? State(context: self.context)
-            category.name = alert.textFields?.first?.text
+            let state = state ?? State(context: self.context)
+            state.name = alert.textFields?.first?.text
+            if let stateTaxField = alert.textFields?[1] {
+                state.stateTax = stateTaxField.text!.convertDoubleToDecimal
+            }
             do {
                 try self.context.save()
                 self.loadStates()
@@ -115,9 +125,10 @@ extension StatesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stateCell", for: indexPath)
         let state = self.statesDataSource[indexPath.row]
         cell.textLabel?.text = state.name
+        cell.detailTextLabel?.text = "\(state.stateTax)"
         cell.accessoryType = .none
         if product != nil {
             /*if let states = product.state, states.contains(state) {

@@ -20,6 +20,7 @@
 		8493D51A208686B100E07080 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D519208686B100E07080 /* bag.png */; };
 		8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493D51B2086903100E07080 /* ProductsTableViewController.swift */; };
 		AC2A2C99208EA5AC00CC15DA /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A2C98208EA5AC00CC15DA /* StatesViewController.swift */; };
+		ACB8700920912E9300B320D9 /* DoubleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8700820912E9300B320D9 /* DoubleConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8493D519208686B100E07080 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
 		8493D51B2086903100E07080 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		AC2A2C98208EA5AC00CC15DA /* StatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
+		ACB8700820912E9300B320D9 /* DoubleConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				84814111208B8ECA0053DE1B /* UIViewController+CoreData.swift */,
+				ACB8700820912E9300B320D9 /* DoubleConverter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				84814112208B8ECA0053DE1B /* UIViewController+CoreData.swift in Sources */,
 				846CACD62088C548006B4D10 /* ComprasUSA.xcdatamodeld in Sources */,
 				8481410F208B8CB60053DE1B /* ProductRegisterViewController.swift in Sources */,
+				ACB8700920912E9300B320D9 /* DoubleConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
