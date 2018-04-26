@@ -27,6 +27,10 @@ class StatesViewController: UIViewController {
         tableView.dataSource = self
         loadStates()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 
     // MARK: - Methods
     func loadStates() {
@@ -51,9 +55,10 @@ class StatesViewController: UIViewController {
             }
         }
         alert.addTextField { (textField: UITextField) in
+            textField.keyboardType = .decimalPad
             textField.placeholder = "Imposto"
             if let stateTax = state?.stateTax {
-                textField.text = "\(stateTax)"
+                textField.text = String(stateTax)
             }
         }
         
@@ -86,34 +91,20 @@ class StatesViewController: UIViewController {
 extension StatesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let category = statesDataSource[indexPath.row]
-        let cell = tableView.cellForRow(at: indexPath)!
-        if cell.accessoryType == .none {
-            cell.accessoryType = .checkmark
-            //movie.addToCategories(category)
-        } else {
-            cell.accessoryType = .none
-            //movie.removeFromCategories(category)
-        }
+        let state = self.statesDataSource[indexPath.row]
+        showAlert(type: .edit, state: state)
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Excluir") { (action: UITableViewRowAction, indexPath: IndexPath) in
-            let category = self.statesDataSource[indexPath.row]
-            self.context.delete(category)
+            let state = self.statesDataSource[indexPath.row]
+            self.context.delete(state)
             try! self.context.save()
             self.statesDataSource.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
-        let editAction = UITableViewRowAction(style: .normal, title: "Editar") { (action: UITableViewRowAction, indexPath: IndexPath) in
-            let state = self.statesDataSource[indexPath.row]
-            tableView.setEditing(false, animated: true)
-            self.showAlert(type: .edit, state: state)
-        }
-        editAction.backgroundColor = .blue
-        return [editAction, deleteAction]
+        return [deleteAction]
     }
 }
 
@@ -129,12 +120,6 @@ extension StatesViewController: UITableViewDataSource {
         let state = self.statesDataSource[indexPath.row]
         cell.textLabel?.text = state.name
         cell.detailTextLabel?.text = "\(state.stateTax)"
-        cell.accessoryType = .none
-        if product != nil {
-            /*if let states = product.state, states.contains(state) {
-                cell.accessoryType = .checkmark
-            }*/
-        }
         return cell
     }
 }
