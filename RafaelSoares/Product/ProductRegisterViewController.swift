@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ProductRegisterViewController: UIViewController {
     
@@ -14,20 +15,62 @@ class ProductRegisterViewController: UIViewController {
     @IBOutlet weak var ivPicture: UIImageView!
     @IBOutlet weak var tfState: UITextField!
     @IBOutlet weak var tfValue: UITextField!
+    @IBOutlet weak var swUsedCreditCard: UISwitch!
     
     var product: Product!
     var smallImage: UIImage!
     
-    var formatter = NumberFormatter()
+    // PickerView que será usado como entrada para o textField de Estado
+    var statesPickerView: UIPickerView!
     
+    var statesDataSource:[State] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if product != nil {
+            tfName.text = product.name
             if let image = product.picture as? UIImage {
                 ivPicture.image = image
             }
+            tfState.text = product.state?.name
+            tfValue.text = String(product.value)
+            swUsedCreditCard.isOn = product.usedCreditCard
         }
+        
+        // Criando o picker view de Estado
+        statesPickerView = UIPickerView()
+        statesPickerView.backgroundColor = .white
+        
+        // Definindo os delegates do picker view de Estado
+        statesPickerView.delegate = self
+        statesPickerView.dataSource = self
+        
+        // Criando a toolbar que será usada no picker view de Estado
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let btCancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        let btSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let btDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolbar.items = [btCancel, btSpace, btDone]
+        tfState.inputAccessoryView = toolbar
+        
+        // Definindo que o input do textField de estado será o nosso picker view de Estado
+        tfState.inputView = statesPickerView
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadStates()
+    }
+    
+    @objc func cancel() {
+        tfState.resignFirstResponder()
+    }
+    
+
+    @objc func done() {
+        tfState.text = statesDataSource[statesPickerView.selectedRow(inComponent: 0)].name
+        cancel()
     }
     
     // Fazer o teclado sumir ao tocar fora dele
@@ -35,17 +78,49 @@ class ProductRegisterViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    // MARK:  Methods
+    func selectPicture(sourceType: UIImagePickerControllerSourceType) {
+        //Criando o objeto UIImagePickerController
+        let imagePicker = UIImagePickerController()
+        
+        //Definimos seu sourceType através do parâmetro passado
+        imagePicker.sourceType = sourceType
+        
+        //Definimos a MovieRegisterViewController como sendo a delegate do imagePicker
+        imagePicker.delegate = self
+        
+        //Apresentamos a imagePicker ao usuário
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func loadStates() {
+        let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        do {
+            statesDataSource = try context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     @IBAction func addUpdateProduct(_ sender: UIButton) {
         if product == nil {
             product = Product(context: context)
         }
         product.name = tfName.text!
-        
-        guard let my_value = formatter.number(from: tfValue.text!)?.doubleValue else {return} // para usar na conversao de double depois
-        
         product.value = Double(tfValue.text!)!
         if smallImage != nil {
             product.picture = smallImage
+        }
+        product.usedCreditCard = swUsedCreditCard.isOn
+        for state in statesDataSource {
+            if (state.name == tfState.text) {
+                product.state = state
+            }
+        }
+        if (product.state == nil) {
+            print("Erro de validacao")
         }
         do {
             try context.save()
@@ -53,7 +128,6 @@ class ProductRegisterViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
     
     @IBAction func addPicture(_ sender: UIButton) {
@@ -85,21 +159,6 @@ class ProductRegisterViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK:  Methods
-    func selectPicture(sourceType: UIImagePickerControllerSourceType) {
-        //Criando o objeto UIImagePickerController
-        let imagePicker = UIImagePickerController()
-        
-        //Definimos seu sourceType através do parâmetro passado
-        imagePicker.sourceType = sourceType
-        
-        //Definimos a MovieRegisterViewController como sendo a delegate do imagePicker
-        imagePicker.delegate = self
-        
-        //Apresentamos a imagePicker ao usuário
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
     
 }
 
@@ -124,4 +183,24 @@ extension ProductRegisterViewController: UIImagePickerControllerDelegate, UINavi
         //Aqui efetuamos o dismiss na UIImagePickerController, para retornar à tela anterior
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension ProductRegisterViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return statesDataSource[row].name
+    }
+    
+}
+
+extension ProductRegisterViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return statesDataSource.count
+    }
+    
 }

@@ -16,6 +16,8 @@ enum DialogType {
 
 class StatesViewController: UIViewController {
     
+    @IBOutlet weak var tfQuote: UITextField!
+    @IBOutlet weak var tfIOF: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
     var statesDataSource: [State] = []
@@ -26,6 +28,18 @@ class StatesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         loadStates()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tfQuote.text = UserDefaults.standard.string(forKey: "quote")
+        tfIOF.text = UserDefaults.standard.string(forKey: "iof")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UserDefaults.standard.set(tfQuote.text!, forKey: "quote")
+        UserDefaults.standard.set(tfIOF.text!, forKey: "iof")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

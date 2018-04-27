@@ -37,9 +37,14 @@ class ProductsTableViewController: UITableViewController {
             print(error.localizedDescription)
         }
     }
-
-
-    // MARK: - Table view data source
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "cellDetail") {
+            if let vc = segue.destination as? ProductRegisterViewController {
+                vc.product = fetchedResultController.object(at: tableView.indexPathForSelectedRow!)
+            }
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

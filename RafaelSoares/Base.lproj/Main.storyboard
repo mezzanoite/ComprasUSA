@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yDh-yf-93t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yDh-yf-93t">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -120,6 +120,8 @@
                     <tabBarItem key="tabBarItem" title="Ajustes" image="gear-7.png" selectedImage="gear-7.png" id="XVU-JQ-Za1"/>
                     <connections>
                         <outlet property="tableView" destination="l0z-gQ-bg9" id="h2z-Z1-okB"/>
+                        <outlet property="tfIOF" destination="61o-qU-iGO" id="5jB-8N-tFu"/>
+                        <outlet property="tfQuote" destination="Bca-SN-ohb" id="e66-hf-8Em"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wM0-a4-NMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,6 +173,7 @@
                                     <outlet property="ivPicture" destination="n0P-TJ-7kY" id="LlL-yG-PNJ"/>
                                     <outlet property="lbName" destination="4Z4-I7-Lr0" id="nDb-QV-T2Q"/>
                                     <outlet property="lbValue" destination="bwQ-Zm-tvP" id="15f-rW-15e"/>
+                                    <segue destination="XKG-k5-YGD" kind="show" identifier="cellDetail" id="C58-LX-RO5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -268,6 +271,7 @@
                     <tabBarItem key="tabBarItem" title="Ajustes" image="gear-7.png" selectedImage="gear-7.png" id="X9t-Kx-Vg0"/>
                     <connections>
                         <outlet property="ivPicture" destination="mAj-Ht-Sa7" id="swx-pb-Wua"/>
+                        <outlet property="swUsedCreditCard" destination="7lW-Te-V14" id="4tE-24-49G"/>
                         <outlet property="tfName" destination="G22-OZ-cGr" id="I0j-Ka-3TI"/>
                         <outlet property="tfState" destination="gyJ-Gs-l5R" id="qNN-r9-oFo"/>
                         <outlet property="tfValue" destination="LED-Mg-bJ6" id="vg1-4U-eFH"/>
@@ -321,6 +325,7 @@
         <image name="gear-7.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="C58-LX-RO5"/>
         <segue reference="LgD-5O-Xp2"/>
     </inferredMetricsTieBreakers>
 </document>
