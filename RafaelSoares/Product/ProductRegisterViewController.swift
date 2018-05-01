@@ -104,29 +104,60 @@ class ProductRegisterViewController: UIViewController {
         }
     }
     
+    func showAlert(_ withMessage: String) {
+        let alert = UIAlertController(title: "Os seguintes campos são obrigatórios e não foram preenchidos: ", message: withMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func validateFields() -> String {
+        var fieldsRequired: [String] = []
+        if tfName == nil || (tfName.text?.isEmpty)! {
+            fieldsRequired.append("Nome")
+        }
+        if ivPicture.image == nil {
+            fieldsRequired.append("Imagem")
+        }
+        if tfState == nil || (tfState.text?.isEmpty)! {
+            fieldsRequired.append("Estado")
+        }
+        if tfValue == nil || (tfValue.text?.isEmpty)! {
+            fieldsRequired.append("Valor")
+        }
+        if !fieldsRequired.isEmpty {
+            return fieldsRequired.map({$0}).joined(separator: ", ")
+        }
+        return ""
+    }
+    
     @IBAction func addUpdateProduct(_ sender: UIButton) {
-        if product == nil {
-            product = Product(context: context)
-        }
-        product.name = tfName.text!
-        product.value = Double(tfValue.text!)!
-        if smallImage != nil {
-            product.picture = smallImage
-        }
-        product.usedCreditCard = swUsedCreditCard.isOn
-        for state in statesDataSource {
-            if (state.name == tfState.text) {
-                product.state = state
+        let validationMessage: String = validateFields()
+        if  !validationMessage.isEmpty {
+            showAlert(validationMessage)
+        } else {
+            if product == nil {
+                product = Product(context: context)
             }
-        }
-        if (product.state == nil) {
-            print("Erro de validacao")
-        }
-        do {
-            try context.save()
-            self.navigationController?.popViewController(animated: true)
-        } catch {
-            print(error.localizedDescription)
+            product.name = tfName.text!
+            product.value = Double(tfValue.text!)!
+            if smallImage != nil {
+                product.picture = smallImage
+            }
+            product.usedCreditCard = swUsedCreditCard.isOn
+            for state in statesDataSource {
+                if (state.name == tfState.text) {
+                    product.state = state
+                }
+            }
+            if (product.state == nil) {
+                print("Erro de validacao")
+            }
+            do {
+                try context.save()
+                self.navigationController?.popViewController(animated: true)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -158,7 +189,6 @@ class ProductRegisterViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
-    
     
 }
 

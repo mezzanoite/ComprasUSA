@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		534A86E62093A78F00AEA5BB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 534A86E52093A78F00AEA5BB /* Settings.bundle */; };
+		53A82A3420991598002889AF /* TotalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A82A3320991598002889AF /* TotalsViewController.swift */; };
 		846CACD32088B414006B4D10 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CACD22088B414006B4D10 /* ProductTableViewCell.swift */; };
 		846CACD62088C548006B4D10 /* ComprasUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846CACD42088C548006B4D10 /* ComprasUSA.xcdatamodeld */; };
 		8481410F208B8CB60053DE1B /* ProductRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481410E208B8CB60053DE1B /* ProductRegisterViewController.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		534A86E52093A78F00AEA5BB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		53A82A3320991598002889AF /* TotalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalsViewController.swift; sourceTree = "<group>"; };
 		846CACD22088B414006B4D10 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		846CACD52088C548006B4D10 /* ComprasUSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ComprasUSA.xcdatamodel; sourceTree = "<group>"; };
 		8481410E208B8CB60053DE1B /* ProductRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRegisterViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53A82A3220991558002889AF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				53A82A3320991598002889AF /* TotalsViewController.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		846CACD12088B3C6006B4D10 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 				846CACD12088B3C6006B4D10 /* Product */,
 				AC2A2C97208EA56F00CC15DA /* State */,
 				8493D5182086864900E07080 /* Resources */,
+				53A82A3220991558002889AF /* New Group */,
 				8493D4FE208674D300E07080 /* AppDelegate.swift */,
 				8493D500208674D300E07080 /* ViewController.swift */,
 				534A86E52093A78F00AEA5BB /* Settings.bundle */,
@@ -202,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC2A2C99208EA5AC00CC15DA /* StatesViewController.swift in Sources */,
+				53A82A3420991598002889AF /* TotalsViewController.swift in Sources */,
 				8493D501208674D300E07080 /* ViewController.swift in Sources */,
 				846CACD32088B414006B4D10 /* ProductTableViewCell.swift in Sources */,
 				8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */,

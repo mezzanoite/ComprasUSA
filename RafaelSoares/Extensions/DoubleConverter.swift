@@ -10,7 +10,8 @@ import Foundation
 
 extension String {
     
-    var convertDoubleToDecimal: Double {
+    // Converte uma String para Double tratando casos de vírgula e ponto
+    var convertToDoubleDecimal: Double {
         let numberFormatter = NumberFormatter()
         numberFormatter.decimalSeparator = "."
         if let result = numberFormatter.number(from: self) {

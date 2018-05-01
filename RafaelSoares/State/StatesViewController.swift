@@ -80,7 +80,7 @@ class StatesViewController: UIViewController {
             let state = state ?? State(context: self.context)
             state.name = alert.textFields?.first?.text
             if let stateTaxField = alert.textFields?[1] {
-                state.stateTax = stateTaxField.text!.convertDoubleToDecimal
+                state.stateTax = stateTaxField.text!.convertToDoubleDecimal
             }
             do {
                 try self.context.save()
