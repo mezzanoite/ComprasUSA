@@ -17,17 +17,30 @@ class TotalsViewController: UIViewController {
     var temporaryTotalDollars: Double = 0
     var temporaryTotalReais: Double = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    var fieldsWithProblem: [String] = []
+
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
         temporaryTotalDollars = 0
         temporaryTotalReais = 0
         
+        fieldsWithProblem.removeAll()
+        
         let quote: Double = getDollarQuote()
         let iof: Double = convertToTaxRate(getIOF())
+        
+        print("\(quote) | \(iof)")
+        
+        if !fieldsWithProblem.isEmpty {
+            let fields: String = fieldsWithProblem.map({$0}).joined(separator: " e ")
+            if fieldsWithProblem.count > 1 {
+                showAlert(withMessage: "Os campos: \(fields) possuem valores inválidos. Favor corrigir na tela de ajustes.", withTitle: "Total não pode ser calculado corretamente!")
+            } else {
+                showAlert(withMessage: "O campo: \(fields) possuí valor inválido. Favor corrigir na tela de ajustes.", withTitle: "Total não pode ser calculado corretamente!")
+            }
+        }
         
         let productsDataSource: [Product] = loadProducts()
         for product in productsDataSource {
@@ -44,6 +57,12 @@ class TotalsViewController: UIViewController {
         totalReais.text = String(temporaryTotalReais)
     }
     
+    func showAlert(withMessage message: String, withTitle title: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func loadProducts() -> [Product] {
         let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
@@ -57,11 +76,21 @@ class TotalsViewController: UIViewController {
     }
     
     func getDollarQuote() -> Double {
-        return (UserDefaults.standard.string(forKey: "quote")?.convertToDoubleDecimal)!
+        if let quote: Double = Double(UserDefaults.standard.string(forKey: "quote")!) {
+            return quote
+        } else {
+            fieldsWithProblem.append("Cotação do Dólar")
+        }
+        return 0
     }
     
     func getIOF() -> Double {
-        return (UserDefaults.standard.string(forKey: "iof")?.convertToDoubleDecimal)!
+        if let iof: Double = Double(UserDefaults.standard.string(forKey: "iof")!) {
+            return iof
+        } else {
+            fieldsWithProblem.append("IOF")
+        }
+        return 0
     }
     
     func convertToTaxRate(_ tax: Double) -> Double{

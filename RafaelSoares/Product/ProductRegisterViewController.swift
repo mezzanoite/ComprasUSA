@@ -117,6 +117,11 @@ class ProductRegisterViewController: UIViewController {
         }
         if ivPicture.image == nil {
             fieldsRequired.append("Imagem")
+        } else {
+            let defaultImage = UIImage(named: "giftbox")
+            if (ivPicture.image == defaultImage) {
+                fieldsRequired.append("Imagem")
+            }
         }
         if tfState == nil || (tfState.text?.isEmpty)! {
             fieldsRequired.append("Estado")
@@ -166,10 +171,9 @@ class ProductRegisterViewController: UIViewController {
     }
     
     @IBAction func addPicture(_ sender: UIButton) {
-        //Criando o alerta que será apresentado ao usuário
-        let alert = UIAlertController(title: "Selecionar poster", message: "De onde você quer escolher o poster?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Selecionar imagem do produto", message: "De onde você quer escolher a imagem?", preferredStyle: .actionSheet)
         
-        //Verificamos se o device possui câmera. Se sim, adicionamos a devida UIAlertAction
+        // Verificação se o device possui câmera
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Câmera", style: .default, handler: { (action: UIAlertAction) in
                 self.selectPicture(sourceType: .camera)
@@ -177,7 +181,6 @@ class ProductRegisterViewController: UIViewController {
             alert.addAction(cameraAction)
         }
         
-        //As UIAlertActions de Biblioteca de fotos e Álbum de fotos também são criadas e adicionadas
         let libraryAction = UIAlertAction(title: "Biblioteca de fotos", style: .default) { (action: UIAlertAction) in
             self.selectPicture(sourceType: .photoLibrary)
         }
@@ -196,31 +199,23 @@ class ProductRegisterViewController: UIViewController {
     
 }
 
-// MARK: - UIImagePickerControllerDelegate
 extension ProductRegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             return
         }
-        //Iremos usar o código abaixo para criar uma versão reduzida da imagem escolhida pelo usuário
         let smallSize = CGSize(width: 300, height: 280)
         UIGraphicsBeginImageContext(smallSize)
         image.draw(in: CGRect(x: 0, y: 0, width: smallSize.width, height: smallSize.height))
-        
-        //Atribuímos a versão reduzida da imagem à variável smallImage
         smallImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        ivPicture.image = smallImage //Atribuindo a imagem à ivPoster
-        
-        //Aqui efetuamos o dismiss na UIImagePickerController, para retornar à tela anterior
+        ivPicture.image = smallImage
         dismiss(animated: true, completion: nil)
     }
 }
 
 extension ProductRegisterViewController: UIPickerViewDelegate {
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return statesDataSource[row].name
     }
