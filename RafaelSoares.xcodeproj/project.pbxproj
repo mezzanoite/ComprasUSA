@@ -18,8 +18,6 @@
 		8493D504208674D300E07080 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8493D502208674D300E07080 /* Main.storyboard */; };
 		8493D506208674D500E07080 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8493D505208674D500E07080 /* Assets.xcassets */; };
 		8493D509208674D500E07080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8493D507208674D500E07080 /* LaunchScreen.storyboard */; };
-		8493D517208685C400E07080 /* gear-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D516208685C400E07080 /* gear-7.png */; };
-		8493D51A208686B100E07080 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 8493D519208686B100E07080 /* bag.png */; };
 		8493D51C2086903100E07080 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493D51B2086903100E07080 /* ProductsTableViewController.swift */; };
 		AC2A2C99208EA5AC00CC15DA /* StatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A2C98208EA5AC00CC15DA /* StatesViewController.swift */; };
 		ACB8700920912E9300B320D9 /* DoubleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB8700820912E9300B320D9 /* DoubleConverter.swift */; };
@@ -39,8 +37,6 @@
 		8493D505208674D500E07080 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8493D508208674D500E07080 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8493D50A208674D500E07080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8493D516208685C400E07080 /* gear-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gear-7.png"; sourceTree = "<group>"; };
-		8493D519208686B100E07080 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
 		8493D51B2086903100E07080 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		AC2A2C98208EA5AC00CC15DA /* StatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesViewController.swift; sourceTree = "<group>"; };
 		ACB8700820912E9300B320D9 /* DoubleConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleConverter.swift; sourceTree = "<group>"; };
@@ -57,12 +53,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		53A82A3220991558002889AF /* New Group */ = {
+		53A82A3220991558002889AF /* Totals */ = {
 			isa = PBXGroup;
 			children = (
 				53A82A3320991598002889AF /* TotalsViewController.swift */,
 			);
-			path = "New Group";
+			path = Totals;
 			sourceTree = "<group>";
 		};
 		846CACD12088B3C6006B4D10 /* Product */ = {
@@ -107,7 +103,7 @@
 				846CACD12088B3C6006B4D10 /* Product */,
 				AC2A2C97208EA56F00CC15DA /* State */,
 				8493D5182086864900E07080 /* Resources */,
-				53A82A3220991558002889AF /* New Group */,
+				53A82A3220991558002889AF /* Totals */,
 				8493D4FE208674D300E07080 /* AppDelegate.swift */,
 				8493D500208674D300E07080 /* ViewController.swift */,
 				534A86E52093A78F00AEA5BB /* Settings.bundle */,
@@ -123,8 +119,6 @@
 		8493D5182086864900E07080 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8493D519208686B100E07080 /* bag.png */,
-				8493D516208685C400E07080 /* gear-7.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -196,10 +190,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8493D51A208686B100E07080 /* bag.png in Resources */,
 				8493D509208674D500E07080 /* LaunchScreen.storyboard in Resources */,
 				8493D506208674D500E07080 /* Assets.xcassets in Resources */,
-				8493D517208685C400E07080 /* gear-7.png in Resources */,
 				534A86E62093A78F00AEA5BB /* Settings.bundle in Resources */,
 				8493D504208674D300E07080 /* Main.storyboard in Resources */,
 			);

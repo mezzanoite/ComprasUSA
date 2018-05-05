@@ -19,6 +19,12 @@ class TotalsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        temporaryTotalDollars = 0
+        temporaryTotalReais = 0
         
         let quote: Double = getDollarQuote()
         let iof: Double = convertToTaxRate(getIOF())
@@ -36,7 +42,6 @@ class TotalsViewController: UIViewController {
         
         totalDollars.text = String(temporaryTotalDollars)
         totalReais.text = String(temporaryTotalReais)
-        
     }
     
     func loadProducts() -> [Product] {
