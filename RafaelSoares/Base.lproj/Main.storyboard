@@ -347,7 +347,7 @@
                                 <rect key="frame" x="302" y="379" width="51" height="31"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tt2-0S-uzU">
-                                <rect key="frame" x="22" y="477" width="329" height="51"/>
+                                <rect key="frame" x="22" y="438" width="329" height="51"/>
                                 <color key="backgroundColor" red="0.29268292682926811" green="0.4530413618733351" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="Scb-3S-xve"/>
@@ -368,7 +368,7 @@
                             <constraint firstItem="dsu-x3-40v" firstAttribute="leading" secondItem="bzH-4x-qOa" secondAttribute="leading" constant="22" id="4dK-HA-oWt"/>
                             <constraint firstItem="bzH-4x-qOa" firstAttribute="trailing" secondItem="Tt2-0S-uzU" secondAttribute="trailing" constant="24" id="BZa-EC-vad"/>
                             <constraint firstItem="7lW-Te-V14" firstAttribute="top" secondItem="gyJ-Gs-l5R" secondAttribute="bottom" constant="15" id="DBn-vN-gbi"/>
-                            <constraint firstItem="Tt2-0S-uzU" firstAttribute="top" secondItem="7lW-Te-V14" secondAttribute="bottom" constant="67" id="Dll-6R-Xfe"/>
+                            <constraint firstItem="Tt2-0S-uzU" firstAttribute="top" secondItem="7lW-Te-V14" secondAttribute="bottom" constant="28" id="Dll-6R-Xfe"/>
                             <constraint firstItem="bzH-4x-qOa" firstAttribute="trailing" secondItem="dsu-x3-40v" secondAttribute="trailing" constant="24" id="F6N-qb-pn3"/>
                             <constraint firstItem="dsu-x3-40v" firstAttribute="top" secondItem="G22-OZ-cGr" secondAttribute="bottom" constant="14" id="KQR-mt-QXA"/>
                             <constraint firstItem="G22-OZ-cGr" firstAttribute="top" secondItem="bzH-4x-qOa" secondAttribute="top" constant="19" id="LM1-kE-iDf"/>

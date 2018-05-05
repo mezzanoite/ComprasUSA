@@ -104,8 +104,8 @@ class ProductRegisterViewController: UIViewController {
         }
     }
     
-    func showAlert(_ withMessage: String) {
-        let alert = UIAlertController(title: "Os seguintes campos são obrigatórios e não foram preenchidos: ", message: withMessage, preferredStyle: .alert)
+    func showAlert(withMessage message: String, withTitle title: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -133,13 +133,17 @@ class ProductRegisterViewController: UIViewController {
     @IBAction func addUpdateProduct(_ sender: UIButton) {
         let validationMessage: String = validateFields()
         if  !validationMessage.isEmpty {
-            showAlert(validationMessage)
+            showAlert(withMessage: validationMessage, withTitle: "Os seguintes campos são obrigatórios e não foram preenchidos: ")
         } else {
             if product == nil {
                 product = Product(context: context)
             }
             product.name = tfName.text!
-            product.value = Double(tfValue.text!)!
+            if let myValue: Double = Double(tfValue.text!) {
+                product.value = myValue
+            } else {
+                showAlert(withMessage: "O campo de Valor do Produto possuí um valor inválido. Favor preencher novamente.", withTitle: "Valor inválido")
+            }
             if smallImage != nil {
                 product.picture = smallImage
             }

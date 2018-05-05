@@ -34,6 +34,30 @@ class StatesViewController: UIViewController {
         super.viewWillAppear(animated)
         tfQuote.text = UserDefaults.standard.string(forKey: "quote")
         tfIOF.text = UserDefaults.standard.string(forKey: "iof")
+        
+        var fieldsWithProblem: [String] = []
+        if let _: Double = Double(tfQuote.text!) {
+            // Não faço nada
+        } else {
+            fieldsWithProblem.append("Cotação do Dólar")
+        }
+        if let _: Double = Double(tfIOF.text!) {
+            // Não faço nada
+        } else {
+            fieldsWithProblem.append("IOF")
+        }
+        
+        print(fieldsWithProblem)
+        
+        if !fieldsWithProblem.isEmpty {
+            let fields: String = fieldsWithProblem.map({$0}).joined(separator: " e ")
+            if fieldsWithProblem.count > 1 {
+                showAlert(withMessage: "Os campos: \(fields) possuem valores inválidos. Favor preencher novamente.", withTitle: "Valores inválidos")
+            } else {
+                showAlert(withMessage: "O campo: \(fields) possuí valor inválido. Favor preencher novamente.", withTitle: "Valor inválido")
+            }
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,6 +71,12 @@ class StatesViewController: UIViewController {
     }
 
     // MARK: - Methods
+    func showAlert(withMessage message: String, withTitle title: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func loadStates() {
         let fetchRequest: NSFetchRequest<State> = State.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
